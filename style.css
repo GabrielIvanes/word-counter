@@ -1,0 +1,72 @@
+body {
+  background-color: #282936;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultat {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.nombreMots {
+  display: block;
+  width: 80px;
+  height: 40px;
+  border: 2px #fff Solid;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 0.75em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nombreCaracteres {
+  display: block;
+  width: 80px;
+  height: 40px;
+  border: 2px #fff Solid;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-radius: 0.75em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.texte {
+  padding: 10px;
+  margin-top: 20px;
+  width: 500px;
+  height: 250px;
+  border-radius: 0.75em;
+  text-align: left;
+}
+
+button {
+  border-radius: 0.75em;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.occurenceMots {
+  display: flex;
+}
+
+.titre {
+  display: flex;
+}
+
+.grille {
+  display: grid;
+  grid-template-columns: 250px 250px;
+}

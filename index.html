@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Compteur de mot</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="main_wrapper">
+      <h1>Compteur de mot</h1>
+      <textarea
+        name="contenu"
+        id="texte"
+        class="texte"
+        placeholder="Collez ou écrivez votre texte ici..."
+        maxlength="100000"
+      >
+      </textarea>
+      <div class="resultat">
+        <button id="bouton">Comptez !</button>
+        <div class="nombreMots" id="nombreMots"></div>
+        <p>mots</p>
+        <div class="nombreCaracteres" id="nombreCaracteres"></div>
+        <p>carat&egrave;res</p>
+      </div>
+      <div class="grille">
+        <h2 id="titreListe">Listes des mots</h2>
+        <h2 id="titreNombre">Nombres d'apparition</h2>
+        <div class="mots"></div>
+        <div class="nombres"></div>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
