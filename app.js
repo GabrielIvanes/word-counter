@@ -1,3 +1,4 @@
+// Init
 if (typeof mots == "undefined") {
   document.querySelector(".texte").textContent = "";
   var mots = [];
@@ -10,6 +11,7 @@ if (typeof mots == "undefined") {
   var compteurCaracteres = 0;
 }
 
+// function reset when a new text is enter
 const reset = () => {
   compteurCaracteres = 0;
   mots = [];
@@ -23,6 +25,7 @@ const reset = () => {
   document.querySelector(".nombres").innerHTML = "";
 };
 
+// Allows to display according to the values
 const afficheEcran = () => {
   if (compteurCaracteres < 1000) {
     document.querySelector(".nombreCaracteres").textContent =
@@ -63,6 +66,7 @@ const afficheEcran = () => {
   }
 };
 
+// Search if a word is in an array
 function estDansLeTableau(mot, tableau) {
   for (let i = 0; i < tableau.length; i++) {
     if (tableau[i] == mot) {
@@ -72,6 +76,7 @@ function estDansLeTableau(mot, tableau) {
   return false;
 }
 
+// Get the number of times a word is write in a text
 function occurenceDansTableau(mot) {
   let res = 0;
   for (let i = 0; i < mots.length; i++) {
@@ -82,11 +87,14 @@ function occurenceDansTableau(mot) {
   return res;
 }
 
+// When the button "Comptez !" is cliked
 document.querySelector("button").addEventListener("click", (event) => {
   reset();
   var caracteresTmp = document.querySelector("textarea");
   for (let i = 0; i < caracteresTmp.textLength; i++) {
     caracteres[i] = caracteresTmp.value.substring(i, i + 1);
+
+    // Count the number of characters in the text
     if (caracteres[i] != " ") {
       compteurCaracteres++;
     }
@@ -121,6 +129,7 @@ document.querySelector("button").addEventListener("click", (event) => {
     }
   }
 
+  // Delete all the "excess" space
   for (let i = 0; i < caracteres.length - 1; i++) {
     if (caracteres[i] == " ") {
       let j = i + 1;
@@ -130,12 +139,14 @@ document.querySelector("button").addEventListener("click", (event) => {
     }
   }
 
+  // Delete all the space before the first character
   let j = 0;
   while (caracteres[j] == " ") {
     let tmp = caracteres.splice(j, 1);
     j++;
   }
 
+  // Delete all the space after the last character
   j = caracteres.length - 1;
   while (caracteres[j] == " ") {
     let tmp = caracteres.splice(j, 1);
@@ -148,14 +159,17 @@ document.querySelector("button").addEventListener("click", (event) => {
 
   text = text.toLowerCase();
 
+  // list of all the word of the text
   mots = text.split(" ");
 
+  // Map with Key --> word and Value --> occurence
   for (let i = 0; i < mots.length; i++) {
     if (!estDansLeTableau(mots[i], motsDejaListe)) {
       listeMots.set(mots[i], occurenceDansTableau(mots[i]));
     }
   }
 
+  // Sort the list in ascending order
   listeMots = new Map([...listeMots.entries()].sort((a, b) => b[1] - a[1]));
 
   afficheEcran();
